@@ -1,0 +1,33 @@
+/* ===========================
+   [M4] TEACHER MODULE
+   =========================== */
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  background: blue;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
