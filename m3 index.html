@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+</head>
+<body>
+
+<header>
+    <h1>School Admin Panel</h1>
+    <nav>
+        <a href="#dashboard">Dashboard</a> |
+        <a href="#users">Users</a> |
+        <a href="#fees">Fees</a> |
+        <a href="#announcements">Announcements</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard">
+        <h2>Dashboard</h2>
+
+        <div>
+            <p>Total Students: <span id="totalStudents">0</span></p>
+            <p>Fees Collected: <span id="feesCollected">0</span></p>
+            <p>Pending Fees: <span id="pendingFees">0</span></p>
+        </div>
+
+        <h3>Recent Activity</h3>
+        <ul id="activityList">
+            <li>No recent activity</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- USERS -->
+    <section id="users">
+        <h2>Manage Users</h2>
+
+        <button id="addUserBtn">Add User</button>
+
+        <table border ="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Class</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                <tr>
+                    <td>John Doe</td>
+                    <td>001</td>
+                    <td>S1</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- FEES -->
+    <section id="fees">
+        <h2>Fees Management</h2>
+
+        <h3>Record Payment</h3>
+        <form id="paymentForm">
+            <input type="text" placeholder="Student Name" required>
+            <input type="number" placeholder="Amount" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <h3>Payment Records</h3>
+        <table border ="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="paymentTable"></tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- ANNOUNCEMENTS -->
+    <section id="announcements">
+        <h2>Announcements</h2>
+
+        <h3>Post Announcement</h3>
+        <form id="announcementForm">
+            <input type="text" placeholder="Title" required>
+            <br><br>
+            <textarea placeholder="Message" required></textarea>
+            <br><br>
+            <button type="submit">Post</button>
+        </form>
+
+        <h3>All Announcements</h3>
+        <div id="announcementList">
+            <p>No announcements yet</p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>School Management System</p>
+</footer>
+
+</body>
+</html>
