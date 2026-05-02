@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal — S-SIMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page="student">
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-toggle" id="sidebar-toggle" aria-label="Open menu">&#9776;</button>
+        <span class="topbar-page-title">Overview</span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-greeting" id="topbar-greeting"></span>
+        <button class="btn btn-ghost btn-sm" data-logout>Sign out</button>
+      </div>
+    </header>
+
+    <main class="main-content">
+
+      <!-- ============================================================
+           [M5-VIEW] DASHBOARD
+           ============================================================ -->
+      <section data-view="dashboard" id="portal-content">
+        <div class="page-header">
+          <div>
+            <h1>Welcome back, <span id="portal-student-name">student</span></h1>
+            <p>Here&rsquo;s your progress in <span id="portal-student-class"></span> this term.</p>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-icon icon-blue">&#x272F;</div>
+            <div class="stat-card-content">
+              <div class="stat-card-label">Average grade</div>
+              <div class="stat-card-value" id="portal-avg-grade">0%</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon icon-green">&#x2713;</div>
+            <div class="stat-card-content">
+              <div class="stat-card-label">My attendance</div>
+              <div class="stat-card-value" id="portal-attendance">0%</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon icon-amber">&#x20A6;</div>
+            <div class="stat-card-content">
+              <div class="stat-card-label">Fees outstanding</div>
+              <div class="stat-card-value" id="portal-balance">GMD 0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="card">
+            <div class="card-header">
+              <h3>Latest announcements</h3>
+              <a href="#announcements" data-view-link="announcements" class="text-sm">View all &rarr;</a>
+            </div>
+            <div class="card-body">
+              <div class="announcement-list" id="portal-announcements"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Quick links</h3>
+            </div>
+            <div class="card-body">
+              <div class="flex flex-col gap-2">
+                <a href="#grades" data-view-link="grades" class="btn btn-outline btn-block">My grades</a>
+                <a href="#timetable" data-view-link="timetable" class="btn btn-outline btn-block">My timetable</a>
+                <a href="#announcements" data-view-link="announcements" class="btn btn-outline btn-block">Announcements</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           [M5-VIEW] GRADES
+           ============================================================ -->
+      <section data-view="grades" class="hidden">
+        <div class="page-header">
+          <div>
+            <h1>My grades</h1>
+            <p>Your performance by subject this term. Pass mark is 50%.</p>
+          </div>
+        </div>
+
+        <div class="subject-grid" id="grades-grid"></div>
+      </section>
+
+      <!-- ============================================================
+           [M5-VIEW] TIMETABLE
+           ============================================================ -->
+      <section data-view="timetable" class="hidden">
+        <div class="page-header">
+          <div>
+            <h1>My weekly timetable</h1>
+            <p>Form 3A &middot; Term 2 schedule.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="timetable">
+              <!-- Header row -->
+              <div class="timetable-cell is-header">Time</div>
+              <div class="timetable-cell is-header">Monday</div>
+              <div class="timetable-cell is-header">Tuesday</div>
+              <div class="timetable-cell is-header">Wednesday</div>
+              <div class="timetable-cell is-header">Thursday</div>
+              <div class="timetable-cell is-header">Friday</div>
+
+              <!-- 08:00 -->
+              <div class="timetable-cell is-time">08:00</div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Mathematics</div><div class="timetable-class-teacher">Mr. Ceesay</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">English</div><div class="timetable-class-teacher">Ms. Saine</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Mathematics</div><div class="timetable-class-teacher">Mr. Ceesay</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Science</div><div class="timetable-class-teacher">Mr. Saidy</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">French</div><div class="timetable-class-teacher">Ms. Faye</div></div></div>
+
+              <!-- 09:00 -->
+              <div class="timetable-cell is-time">09:00</div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">English</div><div class="timetable-class-teacher">Ms. Saine</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">SES</div><div class="timetable-class-teacher">Ms. Bah</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Science</div><div class="timetable-class-teacher">Mr. Saidy</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">English</div><div class="timetable-class-teacher">Ms. Saine</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Mathematics</div><div class="timetable-class-teacher">Mr. Ceesay</div></div></div>
+
+              <!-- 10:00 (break) -->
+              <div class="timetable-cell is-time">10:00</div>
+              <div class="timetable-cell" style="background: var(--color-surface-alt); text-align: center; color: var(--color-text-muted); font-size: var(--text-xs);">Break</div>
+              <div class="timetable-cell" style="background: var(--color-surface-alt); text-align: center; color: var(--color-text-muted); font-size: var(--text-xs);">Break</div>
+              <div class="timetable-cell" style="background: var(--color-surface-alt); text-align: center; color: var(--color-text-muted); font-size: var(--text-xs);">Break</div>
+              <div class="timetable-cell" style="background: var(--color-surface-alt); text-align: center; color: var(--color-text-muted); font-size: var(--text-xs);">Break</div>
+              <div class="timetable-cell" style="background: var(--color-surface-alt); text-align: center; color: var(--color-text-muted); font-size: var(--text-xs);">Break</div>
+
+              <!-- 10:30 -->
+              <div class="timetable-cell is-time">10:30</div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Science</div><div class="timetable-class-teacher">Mr. Saidy</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">ICT</div><div class="timetable-class-teacher">Mr. Ceesay</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">SES</div><div class="timetable-class-teacher">Ms. Bah</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">French</div><div class="timetable-class-teacher">Ms. Faye</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">ICT</div><div class="timetable-class-teacher">Mr. Ceesay</div></div></div>
+
+              <!-- 11:30 -->
+              <div class="timetable-cell is-time">11:30</div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">French</div><div class="timetable-class-teacher">Ms. Faye</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Mathematics</div><div class="timetable-class-teacher">Mr. Ceesay</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">English</div><div class="timetable-class-teacher">Ms. Saine</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">SES</div><div class="timetable-class-teacher">Ms. Bah</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Science</div><div class="timetable-class-teacher">Mr. Saidy</div></div></div>
+
+              <!-- 12:30 (lunch) -->
+              <div class="timetable-cell is-time">12:30</div>
+              <div class="timetable-cell" style="background: var(--color-surface-alt); text-align: center; color: var(--color-text-muted); font-size: var(--text-xs);">Lunch</div>
+              <div class="timetable-cell" style="background: var(--color-surface-alt); text-align: center; color: var(--color-text-muted); font-size: var(--text-xs);">Lunch</div>
+              <div class="timetable-cell" style="background: var(--color-surface-alt); text-align: center; color: var(--color-text-muted); font-size: var(--text-xs);">Lunch</div>
+              <div class="timetable-cell" style="background: var(--color-surface-alt); text-align: center; color: var(--color-text-muted); font-size: var(--text-xs);">Lunch</div>
+              <div class="timetable-cell" style="background: var(--color-surface-alt); text-align: center; color: var(--color-text-muted); font-size: var(--text-xs);">Lunch</div>
+
+              <!-- 14:00 -->
+              <div class="timetable-cell is-time">14:00</div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">SES</div><div class="timetable-class-teacher">Ms. Bah</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Science</div><div class="timetable-class-teacher">Mr. Saidy</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">ICT</div><div class="timetable-class-teacher">Mr. Ceesay</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Mathematics</div><div class="timetable-class-teacher">Mr. Ceesay</div></div></div>
+              <div class="timetable-cell"><div class="timetable-class"><div class="timetable-class-name">Sports</div><div class="timetable-class-teacher">All staff</div></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           [M5-VIEW] ANNOUNCEMENTS
+           ============================================================ -->
+      <section data-view="announcements" class="hidden">
+        <div class="page-header">
+          <div>
+            <h1>School announcements</h1>
+            <p>Updates from your teachers and school administration.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="announcement-list" id="announcements-full"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../javascript/script.js" defer></script>
+</body>
+</html>
