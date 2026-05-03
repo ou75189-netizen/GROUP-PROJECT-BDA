@@ -1,50 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teachers</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher — S-SIMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
+<body data-page="teacher">
 
-    <!-- Header -->
-    <header>
-        <h1>Smart School Information System</h1>
-        <p>Manage Students, Attendance, and Fees Easily</p>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-toggle" id="sidebar-toggle" aria-label="Open menu">&#9776;</button>
+        <span class="topbar-page-title">Dashboard</span>
+      </div>
+      <div class="topbar-right">
+        <span class="topbar-greeting" id="topbar-greeting"></span>
+        <button class="topbar-icon-btn" title="Notifications">
+          &#9873;
+          <span class="badge-dot-indicator"></span>
+        </button>
+        <button class="btn btn-ghost btn-sm" data-logout>Sign out</button>
+      </div>
     </header>
 
-    <!-- Navigation -->
-    <nav>
-        <button onclick="showSection('students')">Students</button>
-        <button onclick="showSection('attendance')">Attendance</button>
-        <button onclick="showSection('fees')">Fees</button>
-    </nav>
+    <main class="main-content">
 
-    <!-- Students Section -->
-    <section id="students" class="active">
-        <h2>Student List</h2>
-        <input type="text" id="studentName" placeholder="Enter student name">
-        <button onclick="addStudent()">Add Student</button>
-        <ul id="studentList"></ul>
-    </section>
+      <!-- ============================================================
+           [M4-VIEW] DASHBOARD
+           ============================================================ -->
+      <section data-view="dashboard">
+        <div class="page-header">
+          <div>
+            <h1>Good day, teacher!</h1>
+            <p>Here&rsquo;s what&rsquo;s happening with your classes today.</p>
+          </div>
+          <div class="page-header-actions">
+            <a href="#attendance" data-view-link="attendance" class="btn btn-primary">Mark attendance</a>
+          </div>
+        </div>
 
-    <!-- Attendance Section -->
-    <section id="attendance">
-        <h2>Attendance</h2>
-        <p>Mark attendance for students</p>
-        <button onclick="markAttendance()">Mark Present</button>
-        <p id="attendanceStatus"></p>
-    </section>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-icon icon-blue">&#x29C9;</div>
+            <div class="stat-card-content">
+              <div class="stat-card-label">My classes</div>
+              <div class="stat-card-value" id="teacher-stat-classes">0</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon icon-green">&#x2630;</div>
+            <div class="stat-card-content">
+              <div class="stat-card-label">My students</div>
+              <div class="stat-card-value" id="teacher-stat-students">0</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon icon-amber">&#x272F;</div>
+            <div class="stat-card-content">
+              <div class="stat-card-label">Class average</div>
+              <div class="stat-card-value" id="teacher-stat-avg">0%</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon icon-purple">&#x270E;</div>
+            <div class="stat-card-content">
+              <div class="stat-card-label">Grades recorded</div>
+              <div class="stat-card-value" id="teacher-stat-grades">0</div>
+            </div>
+          </div>
+        </div>
 
-    <!-- Fees Section -->
-    <section id="fees">
-        <h2>Fees Payment</h2>
-        <input type="number" id="feeAmount" placeholder="Enter amount">
-        <button onclick="payFees()">Pay</button>
-        <p id="feeStatus"></p>
-    </section>
+        <div class="dashboard-grid">
+          <div class="card">
+            <div class="card-header">
+              <h3>Today&rsquo;s schedule</h3>
+              <span class="badge">Wednesday</span>
+            </div>
+            <div class="card-body">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-4" style="padding: var(--space-3); background: var(--color-surface-alt); border-radius: var(--radius-md);">
+                  <div style="font-weight: 600; color: var(--color-primary-dark); min-width: 80px;">08:00&ndash;09:00</div>
+                  <div style="flex: 1;">
+                    <div class="font-medium">Mathematics &middot; Form 3A</div>
+                    <div class="text-xs text-muted">Room 12 &middot; 28 students</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4" style="padding: var(--space-3); background: var(--color-surface-alt); border-radius: var(--radius-md);">
+                  <div style="font-weight: 600; color: var(--color-primary-dark); min-width: 80px;">10:30&ndash;11:30</div>
+                  <div style="flex: 1;">
+                    <div class="font-medium">ICT &middot; Form 3B</div>
+                    <div class="text-xs text-muted">Computer Lab &middot; 24 students</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4" style="padding: var(--space-3); background: var(--color-surface-alt); border-radius: var(--radius-md);">
+                  <div style="font-weight: 600; color: var(--color-primary-dark); min-width: 80px;">14:00&ndash;15:00</div>
+                  <div style="flex: 1;">
+                    <div class="font-medium">Mathematics &middot; Form 4A</div>
+                    <div class="text-xs text-muted">Room 12 &middot; 30 students</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <script src="script.js"></script>
+          <div class="card">
+            <div class="card-header">
+              <h3>Quick links</h3>
+            </div>
+            <div class="card-body">
+              <div class="flex flex-col gap-2">
+                <a href="#attendance" data-view-link="attendance" class="btn btn-outline btn-block">Mark attendance</a>
+                <a href="#grades" data-view-link="grades" class="btn btn-outline btn-block">Enter grades</a>
+                <a href="#announcements" data-view-link="announcements" class="btn btn-outline btn-block">Post class announcement</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           [M4-VIEW] ATTENDANCE
+           ============================================================ -->
+      <section data-view="attendance" class="hidden">
+        <div class="page-header">
+          <div>
+            <h1>Mark attendance</h1>
+            <p>Choose a class and date, then mark each student as present, absent, or late.</p>
+          </div>
+        </div>
+
+        <div class="card mb-6">
+          <div class="card-body">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4);">
+              <div class="form-group" style="margin: 0;">
+                <label class="form-label" for="attendance-class">Class</label>
+                <select class="select" id="attendance-class"></select>
+              </div>
+              <div class="form-group" style="margin: 0;">
+                <label class="form-label" for="attendance-date">Date</label>
+                <input type="date" class="input" id="attendance-date">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Students</h3>
+            <button class="btn btn-primary" id="attendance-submit" disabled>Save attendance</button>
+          </div>
+          <div class="card-body">
+            <div class="attendance-list" id="attendance-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           [M4-VIEW] GRADES ENTRY
+           ============================================================ -->
+      <section data-view="grades" class="hidden">
+        <div class="page-header">
+          <div>
+            <h1>Enter grades</h1>
+            <p>Choose a class and subject, then record scores. Scores must be between 0 and 100.</p>
+          </div>
+        </div>
+
+        <div class="card mb-6">
+          <div class="card-body">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4);">
+              <div class="form-group" style="margin: 0;">
+                <label class="form-label" for="grades-class">Class</label>
+                <select class="select" id="grades-class"></select>
+              </div>
+              <div class="form-group" style="margin: 0;">
+                <label class="form-label" for="grades-subject">Subject</label>
+                <select class="select" id="grades-subject"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Score sheet</h3>
+            <button class="btn btn-primary" id="grades-submit" disabled>Save grades</button>
+          </div>
+          <div class="card-body">
+            <div class="table-wrapper">
+              <table class="table grades-table">
+                <thead>
+                  <tr>
+                    <th style="width: 40%">Student</th>
+                    <th style="width: 20%">Score (0&ndash;100)</th>
+                    <th>Comment (optional)</th>
+                  </tr>
+                </thead>
+                <tbody id="grades-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           [M4-VIEW] ANNOUNCEMENTS
+           ============================================================ -->
+      <section data-view="announcements" class="hidden">
+        <div class="page-header">
+          <div>
+            <h1>My class announcements</h1>
+            <p>Post messages to your students and their parents.</p>
+          </div>
+          <div class="page-header-actions">
+            <button class="btn btn-primary">+ New post</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="announcement-list">
+              <div class="announcement-item">
+                <div class="announcement-header">
+                  <span class="announcement-title">ICT Practical Lab Opens Monday</span>
+                  <span class="announcement-date">18 Apr 2026</span>
+                </div>
+                <div class="announcement-body">
+                  The newly equipped ICT lab will be open for practicals starting Monday. Form 3 and Form 4 students will follow the published rotation timetable. Lab rules are posted at the entrance.
+                </div>
+                <div class="announcement-author">Posted by you &middot; Audience: Form 3A, Form 3B</div>
+              </div>
+
+              <div class="announcement-item">
+                <div class="announcement-header">
+                  <span class="announcement-title">Mathematics Test on Friday</span>
+                  <span class="announcement-date">15 Apr 2026</span>
+                </div>
+                <div class="announcement-body">
+                  Form 4A students, please prepare for a test on Chapters 4 and 5 on Friday at 10:30 AM. Bring your calculator and a ruler. Topics: linear inequalities, quadratic equations.
+                </div>
+                <div class="announcement-author">Posted by you &middot; Audience: Form 4A</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../javascript/script.js" defer></script>
 </body>
 </html>
