@@ -15,7 +15,7 @@
 | 1 | Tugume Andrew | 236-201 | BDSAI |
 | 2 | Baboucarr A Bobb | 192-831 | _assign_ |
 | 3 | Erima Owen | 240-601 | _assign_ |
-| 4 | Wodagira Wycliffe Eria | 236-011 | _assign_ |
+| 4 | Wodagira Wycliffe Eria | 236-011 | DDSA |
 | 5 | Oluoch Umaru | 075-189 | BIT |
 | 6 | _Member 6 name_ | _ID_ | _assign_ |
 
