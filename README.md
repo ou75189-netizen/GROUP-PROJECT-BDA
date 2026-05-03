@@ -17,7 +17,7 @@
 | 3 | Erima Owen | 240-601 | _assign_ |
 | 4 | Wodagira Wycliffe Eria | 236-011 | DDSA |
 | 5 | Oluoch Umaru | 075-189 | BIT |
-| 6 | _Member 6 name_ | _ID_ | _assign_ |
+| 6 | Basomboli Ilongo Nehemie | 235-306 | DDSA |
 
 ## 1. Project Overview
 
