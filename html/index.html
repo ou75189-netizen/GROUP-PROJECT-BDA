@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — S-SIMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page="login">
+
+  <main class="auth-shell">
+    <!-- Hero (desktop only) -->
+    <aside class="auth-hero">
+      <div class="auth-hero-brand">
+        <div class="sidebar-brand-logo" style="background: rgba(255,255,255,0.2); color: white;">SS</div>
+        <span>Smart-School IMS</span>
+      </div>
+
+      <div class="auth-hero-content">
+        <h1>Run your school the smart way.</h1>
+        <p>One platform for attendance, grades, fees, and parent&ndash;teacher communication. Built for public secondary schools in The Gambia.</p>
+
+        <div class="auth-hero-features">
+          <div class="auth-hero-feature">
+            <div class="auth-hero-feature-icon">&#x2713;</div>
+            <div>Track attendance and grades in real time</div>
+          </div>
+          <div class="auth-hero-feature">
+            <div class="auth-hero-feature-icon">&#x270E;</div>
+            <div>Digital records that never get lost</div>
+          </div>
+          <div class="auth-hero-feature">
+            <div class="auth-hero-feature-icon">&#x2691;</div>
+            <div>Keep parents informed automatically</div>
+          </div>
+          <div class="auth-hero-feature">
+            <div class="auth-hero-feature-icon">&#x20A6;</div>
+            <div>Transparent fees, anytime, anywhere</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-hero-footer">
+        &copy; 2026 Distance Snipers &middot; Cavendish University Uganda &middot; BDA2202 / DDA2206
+      </div>
+    </aside>
+
+    <!-- Form area (3 view modes: login, register, forgot, success) -->
+    <section class="auth-form-wrap">
+      <div class="auth-card" id="auth-card">
+
+        <!-- ===== LOGIN VIEW ===== -->
+        <div class="auth-view" data-auth-view="login">
+          <div class="auth-card-mobile-brand">
+            <div class="sidebar-brand-logo">SS</div>
+            <span>Smart-School IMS</span>
+          </div>
+
+          <h2>Welcome back</h2>
+          <p class="auth-card-subtitle">Sign in to continue to your dashboard.</p>
+
+          <div id="login-error-banner" class="auth-error-banner"></div>
+
+          <form id="login-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="login-role">I am a <span class="required">*</span></label>
+              <select id="login-role" class="select" required>
+                <option value="">Choose your role&hellip;</option>
+                <option value="admin">Administrator</option>
+                <option value="teacher">Teacher</option>
+                <option value="parent">Parent</option>
+                <option value="student">Student</option>
+              </select>
+              <span id="login-role-error" class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="login-email">Email address <span class="required">*</span></label>
+              <input id="login-email" type="email" class="input" placeholder="you@school.gm" autocomplete="email" required>
+              <span id="login-email-error" class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="login-password">Password <span class="required">*</span></label>
+              <input id="login-password" type="password" class="input" placeholder="At least 6 characters" autocomplete="current-password" required>
+              <span id="login-password-error" class="form-error"></span>
+            </div>
+
+            <div class="auth-form-row">
+              <label class="checkbox-wrapper">
+                <input type="checkbox" id="login-remember">
+                <span>Remember me</span>
+              </label>
+              <a href="#" data-auth-view-link="forgot">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+          </form>
+
+          <div class="auth-divider">or</div>
+
+          <p class="auth-footer-text">
+            Don&rsquo;t have an account? <a href="#" data-auth-view-link="register">Request access</a>
+          </p>
+
+          <div class="auth-demo-creds">
+            <strong>Demo accounts (click to fill):</strong>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); margin-top: var(--space-2);">
+              <a href="#" data-fill="admin">Admin &rarr;</a>
+              <a href="#" data-fill="teacher">Teacher &rarr;</a>
+              <a href="#" data-fill="parent">Parent &rarr;</a>
+              <a href="#" data-fill="student">Student &rarr;</a>
+            </div>
+            <div style="margin-top: var(--space-3); font-size: 11px;">
+              Password format: <code>{role}123</code> &middot; e.g. <code>admin123</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== REGISTER VIEW ===== -->
+        <div class="auth-view hidden" data-auth-view="register">
+          <div class="auth-card-mobile-brand">
+            <div class="sidebar-brand-logo">SS</div>
+            <span>Smart-School IMS</span>
+          </div>
+
+          <h2>Request access</h2>
+          <p class="auth-card-subtitle">Tell us a bit about yourself and we&rsquo;ll get back to you.</p>
+
+          <form id="register-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="reg-role">I am a <span class="required">*</span></label>
+              <select id="reg-role" class="select" required>
+                <option value="">Choose your role&hellip;</option>
+                <option value="parent">Parent / Guardian</option>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-name">Full name <span class="required">*</span></label>
+              <input id="reg-name" type="text" class="input" placeholder="e.g. Awa Touray" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Email address <span class="required">*</span></label>
+              <input id="reg-email" type="email" class="input" placeholder="you@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-phone">Phone number</label>
+              <input id="reg-phone" type="tel" class="input" placeholder="+220 xxx xxxx">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-note">Anything else we should know?</label>
+              <textarea id="reg-note" class="textarea" rows="3" placeholder="e.g. my child Lamin is in Form 3A"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Submit request</button>
+          </form>
+
+          <div class="auth-divider">or</div>
+
+          <p class="auth-footer-text">
+            Already have an account? <a href="#" data-auth-view-link="login">Sign in</a>
+          </p>
+        </div>
+
+        <!-- ===== FORGOT PASSWORD VIEW ===== -->
+        <div class="auth-view hidden" data-auth-view="forgot">
+          <div class="auth-card-mobile-brand">
+            <div class="sidebar-brand-logo">SS</div>
+            <span>Smart-School IMS</span>
+          </div>
+
+          <h2>Reset your password</h2>
+          <p class="auth-card-subtitle">Enter the email associated with your account.</p>
+
+          <form id="forgot-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="fp-email">Email address <span class="required">*</span></label>
+              <input id="fp-email" type="email" class="input" placeholder="you@school.gm" autocomplete="email" required>
+              <span id="fp-email-error" class="form-error"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Send reset link</button>
+          </form>
+
+          <div class="auth-divider">or</div>
+
+          <p class="auth-footer-text">
+            Remembered it? <a href="#" data-auth-view-link="login">Back to sign in</a>
+          </p>
+        </div>
+
+        <!-- ===== SUCCESS VIEW (shared) ===== -->
+        <div class="auth-view hidden" data-auth-view="success">
+          <div style="text-align: center; padding: var(--space-8) 0;">
+            <div id="success-icon" style="width: 64px; height: 64px; border-radius: 50%; background: var(--color-secondary-light); color: var(--color-secondary-dark); display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto var(--space-5);">&#x2713;</div>
+            <h2 id="success-title">Done</h2>
+            <p class="auth-card-subtitle" id="success-message" style="margin-top: var(--space-2);"></p>
+            <a href="#" data-auth-view-link="login" class="btn btn-outline">Back to sign in</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // [M1] In-page view switcher for auth (login/register/forgot/success)
+    function showAuthView(viewName) {
+      var views = document.querySelectorAll('[data-auth-view]');
+      for (var i = 0; i < views.length; i++) {
+        if (views[i].dataset.authView === viewName) {
+          views[i].classList.remove('hidden');
+        } else {
+          views[i].classList.add('hidden');
+        }
+      }
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-auth-view-link]');
+      if (t) {
+        e.preventDefault();
+        showAuthView(t.dataset.authViewLink);
+      }
+    });
+
+    // Register form handler
+    document.getElementById('register-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('success-icon').innerHTML = '&#x2713;';
+      document.getElementById('success-title').textContent = 'Request submitted';
+      document.getElementById('success-message').innerHTML = 'Thanks! We&rsquo;ll review your request and email you within 1&ndash;2 working days.';
+      showAuthView('success');
+    });
+
+    // Forgot password handler
+    document.getElementById('forgot-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var emailInput = document.getElementById('fp-email');
+      var error = document.getElementById('fp-email-error');
+      var email = emailInput.value.trim();
+      var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      error.textContent = '';
+      emailInput.classList.remove('input-error');
+
+      if (!email) {
+        error.textContent = 'Please enter your email.';
+        emailInput.classList.add('input-error');
+        return;
+      }
+      if (!pattern.test(email)) {
+        error.textContent = 'Please enter a valid email.';
+        emailInput.classList.add('input-error');
+        return;
+      }
+
+      document.getElementById('success-icon').innerHTML = '&#x2709;';
+      document.getElementById('success-icon').style.background = 'var(--color-primary-light)';
+      document.getElementById('success-icon').style.color = 'var(--color-primary-dark)';
+      document.getElementById('success-title').textContent = 'Check your inbox';
+      document.getElementById('success-message').innerHTML = 'If an account exists for <strong>' + email.replace(/[<>&]/g, '') + '</strong>, you&rsquo;ll receive a password reset link shortly.';
+      showAuthView('success');
+    });
+  </script>
+  <script src="../javascript/script.js" defer></script>
+</body>
+</html>
