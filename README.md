@@ -12,7 +12,7 @@
 
 | # | Name | Student ID | Module |
 |---|------|------------|--------|
-| 1 | Tugume Andrew | 236-201 | _assign_ |
+| 1 | Tugume Andrew | 236-201 | BDSAI |
 | 2 | Baboucarr A Bobb | 192-831 | _assign_ |
 | 3 | Erima Owen | 240-601 | _assign_ |
 | 4 | Wodagira Wycliffe Eria | 236-011 | _assign_ |
