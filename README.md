@@ -13,8 +13,8 @@
 | # | Name | Student ID | Module |
 |---|------|------------|--------|
 | 1 | Tugume Andrew | 236-201 | BDSAI |
-| 2 | Baboucarr A Bobb | 192-831 | _assign_ |
-| 3 | Erima Owen | 240-601 | _assign_ |
+| 2 | Baboucarr A Bobb | 192-831 | BDSAI |
+| 3 | Erima Owen | 240-601 | DDSA |
 | 4 | Wodagira Wycliffe Eria | 236-011 | DDSA |
 | 5 | Oluoch Umaru | 075-189 | BIT |
 | 6 | Basomboli Ilongo Nehemie | 235-306 | DDSA |
